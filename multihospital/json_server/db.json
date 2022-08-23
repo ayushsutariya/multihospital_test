@@ -1,0 +1,21 @@
+{
+  "auth_data": [
+    {
+      "id" : 101,
+      "first_name": "Dhruv",
+      "last_name": "Malaviya",
+      "email": "somthing_more@gmail.com",
+      "password": "something"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

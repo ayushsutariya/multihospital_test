@@ -1,17 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
+import { createRoot } from 'react-dom/client';
+import { createStore, applyMiddleware } from 'redux'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { all_Reducers } from './Container/Reducers';
+import thunk from 'redux-thunk';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+const store = createStore(all_Reducers, applyMiddleware(thunk))
+// const sagaMiddleware = createSagaMiddleware()
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
